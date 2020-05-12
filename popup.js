@@ -10,7 +10,8 @@ showAdmin.onclick = function(element) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.executeScript(
 	tabs[0].id,
-	{code: 'document.getElementsByClassName("adminnav")[0].style.display = "block"'});
+	{code: 'chrome.storage.sync.set({ "adminnav_visible": true }, function(){ console.log("Nav vis: true") }); document.getElementsByClassName("adminnav")[0].style.display = "block";'}
+      );
     });
   } else {
     showAdmin.innerHTML = "Show";
@@ -18,7 +19,7 @@ showAdmin.onclick = function(element) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.executeScript(
 	tabs[0].id,
-	{code: 'document.getElementsByClassName("adminnav")[0].style.display = "none"'});
+	{code: 'chrome.storage.sync.set({ "adminnav_visible": false }, function(){ console.log("Nav vis: false") }); document.getElementsByClassName("adminnav")[0].style.display = "none";'});
     });
   }
 };
