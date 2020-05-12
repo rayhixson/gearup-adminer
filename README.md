@@ -13,15 +13,15 @@ This is a quite hacky exercise in learning a few things about a browser extensio
   
 This extension uses chrome.storage.sync api because it allows the state to be shared across all instances of the browser. Maybe localStorage is better?
   
-##. Next
-  * Probably which code is in which file could be reviewed and improved. The goal is to make it easier for the next developer to add new features to the navbar / site without having to reverse engineer how an extension works.
-  * Create a new icon for the extension
-  * Make the navbar pretty
-  * Make the "Add All Sizes" option only appear on a product page
-  * Add a feature that makes a "Add All" button appear next to each product on the overview page (but only if the navbar is visible)
-  * ...
+## Next
+* Probably which code is in which file could be reviewed and improved. The goal is to make it easier for the next developer to add new features to the navbar / site without having to reverse engineer how an extension works.
+* Create a new icon for the extension
+* Make the navbar pretty
+* Make the "Add All Sizes" option only appear on a product page
+* Add a feature that makes a "Add All" button appear next to each product on the overview page (but only if the navbar is visible)
+* ...
 
-#. Instructions
+# Instructions
 
 After cloning this repo locally:
 * Go to chrome://extensions/
