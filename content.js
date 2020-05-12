@@ -6,17 +6,17 @@ s.onload = function() {
 };
 (document.head || document.documentElement).appendChild(s);
 
-// determine whether to show the admin nav initially or not
-var showNav = chrome.storage.sync.get("adminnav_visible", function(items) { console.log("Retrieving from storage: " + items); });
-visState = "none";
-if (showNav != null && showNav[0]) {
-  visState = "block";
-}
-
 // inject the menu that has the feature buttons on it
 document.body.insertAdjacentHTML("afterbegin", `
-<div class="adminnav" style="display:` + visState + `;"> 
-  <a href="#" onclick="addAllSizes();">Add All Products</a>
+<div class="adminnav" style="display:block;"> 
+  <a href="#" onclick="addAllSizes();">Add All Sizes</a>
   <a href="#">Something Else</a>
 </div>`);
+
+// determine whether to show the admin nav initially or not
+chrome.storage.sync.get("adminnav_visible", function(items) {
+  if (items == null || !items.adminnav_visible) {
+    document.getElementsByClassName("adminnav")[0].style.display = "none";
+  }
+});
 
